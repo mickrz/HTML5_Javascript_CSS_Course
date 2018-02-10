@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <title>part1.html</title>
+</head>
+<body>
+<form method="get" enctype="multipart/form-data"
+ action="https://ihome.ust.hk/~rossiter/cgi-bin/show_everything.php">
+  <h1>Please Enter Your Details For Our Dating Website!</h1>
+
+  <fieldset><legend>Your Face</legend>	
+    <label for="yourImage">Your Image:</label>
+    <input type="file" name="yourImage" required>
+	<br>
+    <label for="imagePreview">Image preview: </label>
+    <img id="preview" width="100"/>	
+  </fieldset>
+
+  <fieldset><legend>Your General Details</legend>
+    <label for="fullname">Name: </label>
+    <input type="text" name="fullname" placeholder="Your full name" required></label>
+	<br>
+	<label for="gender">Gender: </label>
+    <input type="radio" name="gender" value="male" required>Male
+    <input type="radio" name="gender" value="female" required>Female
+    <br>
+    <label for="age">Age: </label>
+    <input min="0" max="99" step="1" value="18" name="age" required="" type="number">
+ 	<br>
+    <label for="birthday">Date of birth: </label>
+    <input name="birthday" type="date">
+	<br>
+    <label for="color">Favorite Color: </label>
+    <input name="color" type="color">
+	<br>
+    <label for="country">Which country: </label>
+	<select name="country">
+      <option value="nopref">No Preference</option>
+	  <option value="usa">USA</option>
+	  <option value="france">France</option>
+	  <option value="uk">UK</option>
+	  <option value="belgium">Belgium</option>
+	  <option value="germany">Germany</option>
+	</select>
+  </fieldset>
+
+  <fieldset><legend>Your Indicators</legend>
+    <label for="height">Height: </label>
+    <label for="short" class="sliderLabelID">Short</label>
+	<input min="0" max="100" step="5" value="50" name="height" type="range">
+    <label for="tall" class="sliderLabelID">Tall</label>
+	<br>
+    <label for="salary">Salary: </label>
+    <label for="poor" class="sliderLabelID">Poor</label>
+	<input min="0" max="100" step="5" value="50" name="salary" type="range">
+    <label for="rich" class="sliderLabelID">Rich</label>
+	<br>
+  </fieldset>
+  
+  <fieldset><legend>Your Contact Information</legend>
+    <label for="emailaddress">Email: </label>
+    <input type="email" name="emailaddress" required>
+	<br>
+    <label for="mobile">Mobile: </label>
+    <input type="tel" name="mobile">
+	<br>
+    <label for="address">Address: </label>
+    <input type="textarea" name="address">
+	<br>
+    <label for="contactMethod">Method to contact you: </label>
+    <input type="checkbox" name="contactMethod" value="email" required>Email
+    <input type="checkbox" name="contactMethod" value="whatsapp">Whatsapp
+    <input type="checkbox" name="contactMethod" value="inappchat">In-app chat
+    <br>
+  </fieldset>
+  
+  <input value="Submit" type="submit">
+</form>
+</body>
+</html>

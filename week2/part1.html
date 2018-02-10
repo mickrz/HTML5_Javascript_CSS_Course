@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>part1.html</title>
+</head>
+<body onload="do_game()">
+  <script>
+    var target;            
+    var guess_input_text;   
+    var guess_input;      
+    var finished = false;   
+    var guesses = 0;
+  
+    function do_game() {
+      var colorArray = ["blue","cyan","gold","grey","green","majenta","orange","red","white","yellow"];
+      var colorArrayLength = colorArray.length;
+	  var random_number = Math.random() * colorArrayLength;
+      target = colorArray[Math.floor(random_number)];
+	  alert(target);
+
+	  var promptStr = "I am thinking of one of these colors:\n\n";
+	  
+	  var tmpStr = ""
+	  
+	  for (var singleColor = 0; singleColor < colorArrayLength; singleColor++) {      
+	    tmpStr += colorArray[singleColor];
+	    if (singleColor < colorArrayLength - 1) {
+          tmpStr += ", ";
+	    }
+	  }
+
+	  promptStr += tmpStr + "\n\nWhat color am I thinking of?"
+      while (!finished) {
+        guess_input_text = prompt(promptStr);
+        guess_input = parseInt(guess_input_text);
+        guesses += 1;   
+        finished = check_guess();
+      }
+    }
+	
+    function check_guess() {
+      if (guess_input_text.length == 0) {
+          alert("You have not entered a color.\n\n" +
+                "Please enter a color in the list!");
+          return false;
+      }	
+	
+	  var res = guess_input_text.localeCompare(target);
+	  if (res != 0) {
+	    alert(guess_input_text + " is not the color. Try again!");
+	    return false;
+	  }
+      alert("You got it! The color was " + target + 
+            ".\n\nIt took you " + guesses + 
+            " guesses to get the color!");
+      return true;   
+    }	
+  </script>
+</body>
+</html>

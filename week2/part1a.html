@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>part1.html</title>
+</head>
+<body onload="do_game()">
+  <script>
+    var target;            
+    var guess_input_text;       
+    var finished = false;   
+    
+    function do_game() {
+      var colorArray = ["blue","cyan","gold","grey","green","majenta","orange","red","white","yellow"];
+      target = colorArray[Math.floor(Math.random() * colorArray.length)];
+	  alert(target);
+
+      while (!finished) {
+        guess_input_text = prompt("I'm thinking of one of these colors:\n\n"+colorArray.sort().join()+"\n\nWhat color am I thinking of?");
+	    if (guess_input_text.localeCompare(target) == 0) {
+          finished = true;
+        }
+	  }
+    }	
+  </script>
+</body>
+</html>

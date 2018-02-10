@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>part1.html</title>
+</head>
+<body onload="do_game()">
+  <script>
+    var target;            
+    var guess_input_text;         
+    var finished = false;   
+    var guesses = 0;
+    var colorArray = ["blue","cyan","gold","grey","green","majenta","orange","red","white","yellow"]; 
+
+    function do_game() {
+      target = colorArray[Math.floor(Math.random() * colorArray.length)];
+	  alert(target);
+
+      while (!finished) {
+        guess_input_text = prompt("I'm thinking of one of these colors:\n\n"+colorArray.sort().join()+"\n\nWhat color am I thinking of?");
+        guesses += 1;   
+        finished = check_guess();
+      }
+    }
+	
+    function check_guess() {
+      if (guess_input_text.length == 0) {
+          alert("You have not entered a color.\n\nPlease enter a color in the list!");
+          return false;
+      }
+	  if (colorArray.indexOf( guess_input_text ) == -1) {
+        alert("I don't recognized that color.");
+        return false;
+      }
+	  
+	  var res = guess_input_text.localeCompare(target);
+	  if (res > 0) {
+	    alert("Your input is alphabetically higher than mine!");
+	    return false;
+	  }
+	  if (res < 0) {
+	    alert("Your input is alphabetically lower than mine!");
+	    return false;
+	  }
+	  
+      alert("You got it! The color was " + target + ".\n\nIt took you " + guesses + " guesses to get the color!");
+      myBody=document.getElementsByTagName("body")[0];
+      myBody.style.background=target;	
+      return true;   
+    }	
+  </script>
+</body>
+</html>
